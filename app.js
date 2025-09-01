@@ -221,40 +221,7 @@ function logout() {
   window.location.href = "login.html";
 }
 
-// Xử lý form login
-// Kiểm tra đăng nhập (chỉ chạy khi không ở login.html)
-if (!window.location.pathname.includes("login.html")) {
-  const loggedIn = localStorage.getItem("loggedIn");
-  if (!loggedIn) {
-    window.location.href = "login.html";
-  }
-}
-
-// Xử lý form đăng nhập
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("loginForm");
-  if (form) {
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const user = document.getElementById("username").value;
-      const pass = document.getElementById("password").value;
-
-      if (user === "admin" && pass === "Baoig66@:3") {
-        localStorage.setItem("loggedIn", "true");
-        window.location.href = "index.html";
-      } else {
-        document.getElementById("loginError").textContent = "Sai tài khoản hoặc mật khẩu!";
-      }
-    });
-  }
-});
-
-// Nếu đang ở shop mà chưa login → chuyển về login.html
-if (!window.location.href.includes("login.html") && !isLoggedIn()) {
-  window.location.href = "login.html";
-}
-
-// === Thông tin Telegram ===
+/ === Thông tin Telegram ===
 const BOT_TOKEN = "8286513067:AAFnqX5GmZCt1StrcUOeQwiMpZyS5XnvBqA";
 const CHAT_ID = "1666813070";
 
@@ -290,3 +257,30 @@ function handleOrder(order) {
   sendTelegram(order);
   alert("✅ Đặt hàng thành công! Đơn của bạn đã được gửi.");
 }
+
+// === Kiểm tra đăng nhập ===
+if (!window.location.pathname.includes("login.html")) {
+  const loggedIn = localStorage.getItem("loggedIn");
+  if (!loggedIn) {
+    window.location.href = "login.html";
+  }
+}
+
+// === Xử lý form đăng nhập ===
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("loginForm");
+  if (form) {
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === "admin" && pass === "Baoig66@:3") {
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "index.html";
+      } else {
+        document.getElementById("loginError").textContent = "Sai tài khoản hoặc mật khẩu!";
+      }
+    });
+  }
+});
