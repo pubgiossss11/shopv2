@@ -254,31 +254,37 @@ if (!window.location.href.includes("login.html") && !isLoggedIn()) {
   window.location.href = "login.html";
 }
 
-// ==== TELEGRAM THÔNG BÁO ====
-function sendTelegram(order) {
-  const token = "8286513067:AAFnqX5GmZCt1StrcUOeQwiMpZyS5XnvBqA";
-  const chatId = "1666813070";
+// === Thông tin Telegram ===
+const BOT_TOKEN = "8286513067:AAFnqX5GmZCt1StrcUOeQwiMpZyS5XnvBqA";
+const CHAT_ID = "1666813070";
 
-  const msg = `🛒 Đơn hàng mới
+// === Hàm gửi tin nhắn về Telegram ===
+async function sendTelegram(order) {
+  const text = `📦 Đơn hàng mới:
 👤 Tên: ${order.name}
-📧 Email: ${order.email}
-📞 Liên hệ: ${order.phone}
-💳 Thanh toán: ${order.payment} - Mã GD: ${order.code}
-📦 Sản phẩm: ${order.items.map(i=>i.name + " x" + i.qty).join(", ")}
-💵 Tổng: ${order.total.toLocaleString()} VNĐ`;
+📱 Liên hệ: ${order.phone}
+🎮 Tài khoản: ${order.account}
+💰 Giá: ${order.price}`;
 
-  fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ chat_id: chatId, text: msg })
-  })
-  .then(res => res.json())
-  .then(data => console.log("✅ Đã gửi về Telegram:", data))
-  .catch(err => console.error("❌ Lỗi gửi Telegram:", err));
+  try {
+    let res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: text
+      })
+    });
+
+    let data = await res.json();
+    console.log("Kết quả gửi Telegram:", data);
+
+  } catch (err) {
+    console.error("Lỗi gửi Telegram:", err);
+  }
 }
 
-
-// === GỬI TELEGRAM KHI ĐẶT HÀNG ===
+// === Xử lý đặt hàng ===
 function handleOrder(order) {
   console.log("📦 Đơn hàng mới:", order);
   sendTelegram(order);
