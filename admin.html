@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ACC SHOP — Admin</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="container header">
+  <div class="brand">
+    <img src="assets/logo.svg" alt="ACC SHOP" class="logo" />
+    <h1>ACC SHOP — Admin</h1>
+  </div>
+  <nav class="nav">
+    <a href="index.html">← Quay lại shop</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h3>Đăng nhập nhanh</h3>
+    <p>Trang admin đơn giản (demo). Dùng PIN để vào. <strong>Không bảo mật cho môi trường thật</strong>.</p>
+    <div class="row">
+      <input id="pinInput" class="input" placeholder="Nhập PIN (mặc định: 123456)">
+      <button id="loginBtn" class="btn primary">Đăng nhập</button>
+      <button id="logoutBtn" class="btn ghost">Đăng xuất</button>
+    </div>
+  </section>
+
+  <section id="adminPanel" class="hidden">
+    <div class="tabs">
+      <button class="tab active" data-tab="productsTab">Sản phẩm</button>
+      <button class="tab" data-tab="ordersTab">Đơn hàng</button>
+      <button class="tab" data-tab="settingsTab">Cài đặt</button>
+    </div>
+
+    <div id="productsTab" class="tab-panel">
+      <div class="row">
+        <button id="addProductBtn" class="btn">+ Thêm sản phẩm</button>
+        <button id="exportProductsBtn" class="btn ghost">Xuất JSON</button>
+        <input type="file" id="importProductsInput" accept="application/json" class="input">
+      </div>
+      <div id="adminProducts" class="grid"></div>
+    </div>
+
+    <div id="ordersTab" class="tab-panel hidden">
+      <div class="row">
+        <button id="exportOrdersBtn" class="btn ghost">Xuất đơn JSON</button>
+      </div>
+      <div id="adminOrders"></div>
+    </div>
+
+    <div id="settingsTab" class="tab-panel hidden">
+      <label>PIN Admin
+        <input id="pinSetting" class="input" placeholder="6 chữ số">
+      </label>
+      <button id="saveSettings" class="btn">Lưu</button>
+      <p class="note">Mẹo: Bạn có thể host site này trên Netlify/GitHub Pages. Tất cả dữ liệu sẽ nằm trên trình duyệt (localStorage) trừ file JSON tĩnh.</p>
+    </div>
+  </section>
+</main>
+
+<script src="admin.js"></script>
+</body>
+</html>

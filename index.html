@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ACC SHOP — Bán account game</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="container header">
+  <div class="brand">
+    <img src="assets/logo.svg" alt="ACC SHOP" class="logo" />
+    <h1>ACC SHOP</h1>
+  </div>
+  <nav class="nav">
+    <a href="#products">Sản phẩm</a>
+    <a href="#how">Mua hàng</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Shop account game uy tín</h2>
+      <p>Tự động thêm vào giỏ — thanh toán chuyển khoản — giao acc thủ công qua email/Zalo sau khi xác nhận.</p>
+      <div class="hero-actions">
+        <input id="searchInput" class="input" placeholder="Tìm theo game, rank, giá...">
+        <button id="clearSearch" class="btn ghost">Xoá</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="filters" class="filters">
+    <select id="gameFilter" class="input">
+      <option value="">Tất cả game</option>
+    </select>
+    <select id="priceFilter" class="input">
+      <option value="">Mọi mức giá</option>
+      <option value="0-200000">&lt; 200k</option>
+      <option value="200000-500000">200k – 500k</option>
+      <option value="500000-1000000">500k – 1 triệu</option>
+      <option value="1000000-999999999">&gt; 1 triệu</option>
+    </select>
+    <button id="resetFilters" class="btn ghost">Đặt lại</button>
+  </section>
+
+  <section id="products" class="grid"></section>
+
+  <section id="how" class="how">
+    <h3>Quy trình mua</h3>
+    <ol>
+      <li>Chọn account &rarr; Thêm vào giỏ.</li>
+      <li>Vào giỏ &rarr; Điền thông tin liên hệ &rarr; Chọn phương thức thanh toán.</li>
+      <li>Chuyển khoản và nhập Mã giao dịch (nếu có). Admin sẽ xác nhận và giao acc qua email/Zalo.</li>
+    </ol>
+    <p class="note">Lưu ý: Việc mua bán account có thể vi phạm điều khoản của một số tựa game. Hãy tự chịu trách nhiệm và tuân thủ pháp luật/ToS.</p>
+  </section>
+</main>
+
+<button id="cartButton" class="fab" aria-label="Giỏ hàng">
+  <span id="cartCount">0</span>
+  🛒
+</button>
+
+<div id="cartModal" class="modal hidden" aria-hidden="true">
+  <div class="modal-card">
+    <header class="modal-header">
+      <h3>Giỏ hàng</h3>
+      <button id="closeCart" class="icon-btn" aria-label="Đóng">✕</button>
+    </header>
+    <div class="modal-body">
+      <div id="cartItems"></div>
+      <div class="cart-summary">
+        <div class="row">
+          <span>Tổng:</span>
+          <strong id="cartTotal">0₫</strong>
+        </div>
+      </div>
+      <hr/>
+      <form id="checkoutForm" class="form">
+        <h4>Thông tin nhận acc</h4>
+        <label>Họ tên<input name="name" class="input" required></label>
+        <label>Email (nhận acc)<input name="email" type="email" class="input" required></label>
+        <label>SĐT/Zalo<input name="phone" class="input"></label>
+        <label>Ghi chú đơn hàng<textarea name="note" class="input" rows="3" placeholder="Ví dụ: giao qua Zalo, khung giờ liên hệ..."></textarea></label>
+        <fieldset class="fieldset">
+          <legend>Thanh toán</legend>
+          <label><input type="radio" name="pay" value="Chuyển khoản ngân hàng" required> Chuyển khoản ngân hàng</label>
+          <label><input type="radio" name="pay" value="Momo/ZaloPay"> Momo/ZaloPay</label>
+          <label><input type="radio" name="pay" value="Khác"> Khác</label>
+          <label>Mã giao dịch (nếu có)<input name="tx" class="input" placeholder="VD: FT123ABC..."></label>
+        </fieldset>
+        <button type="submit" class="btn primary full">Đặt hàng</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer class="container footer">
+  <p>© <span id="year"></span> ACC SHOP. All rights reserved.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

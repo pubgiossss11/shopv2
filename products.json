@@ -1,0 +1,49 @@
+[
+  {
+    "id": "valo-silver-1",
+    "title": "Valorant — Acc rank Silver, full access",
+    "description": "Email gốc, chưa ban, có skin lẻ.",
+    "price": 350000,
+    "game": "Valorant",
+    "emoji": "🎯",
+    "tags": [
+      "silver",
+      "full access"
+    ]
+  },
+  {
+    "id": "lienquan-bachkim-1",
+    "title": "Liên Quân — Acc bạch kim",
+    "description": "94 tướng, 50 skin, rừng mạnh.",
+    "price": 890000,
+    "game": "Liên Quân",
+    "emoji": "⚔️",
+    "tags": [
+      "bạch kim",
+      "nhiều skin"
+    ]
+  },
+  {
+    "id": "lq-newbie",
+    "title": "Liên Quân — Acc mới chơi",
+    "description": "10 tướng cơ bản, phù hợp tân thủ.",
+    "price": 120000,
+    "game": "Liên Quân",
+    "emoji": "🛡️",
+    "tags": [
+      "newbie"
+    ]
+  },
+  {
+    "id": "genshin-ar45",
+    "title": "Genshin — AR45, nhiều nhân vật",
+    "description": "AR45, có Diluc + Jean, vài vũ khí 4★.",
+    "price": 1500000,
+    "game": "Genshin Impact",
+    "emoji": "🌌",
+    "tags": [
+      "AR45",
+      "nhân vật hiếm"
+    ]
+  }
+]
